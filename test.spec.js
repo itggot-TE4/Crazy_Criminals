@@ -7,7 +7,7 @@ import path from 'path'
 
 //const html = fs.readFileSync(path.resolve(__dirname, './index.html'), 'utf8');
 
-const sum = require('./main.js');
+const sum = require('./server/server/public/js/main.js');
 
 let h
 let dom

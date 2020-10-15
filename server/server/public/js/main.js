@@ -1,18 +1,16 @@
-function sum (a, b) { return a + b }
-module.exports = sum
-
 function run () {
   window.document.querySelector('#searchButton').addEventListener('click', search)
+  const url = window.location.pathname.split('/')
+  console.log(url)
+  if (url[1] === 'user') {
+    getForks(url[2], url[3])
+  }
 }
 
- async function getForks () { // eslint-disable-line no-unused-vars
-  const user = 'itggot'
-  const reponame = 'apl-preparation'
+ async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
   const result = await fetch(`https://api.github.com/repos/${user}/${reponame}/forks`)
   const hej = await result.json()
-  console.log(hej)
   handleForkData(hej)
-  // handleRepoData(hej);
 }
 
 function handleForkData (forkData) {
@@ -59,7 +57,11 @@ function createCard (repo) {
   const forks = card.querySelector('p.counter')
   forks.innerHTML = repo.forks
 
-  console.log(card)
+  const gh = card.querySelector('#ghlink')
+  gh.href = repo.html_url
+
+  const forklink = card.querySelector('.forkLink')
+  forklink.href = `/user/${repo.full_name}`
 
   document.querySelector('.cardBox').appendChild(card)
 }
@@ -70,5 +72,6 @@ function generateTemp () { // eslint-disable-line no-unused-vars
   console.log(card)
   document.querySelector('.cardBox').appendChild(card)
 }
+
 
 run()

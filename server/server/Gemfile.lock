@@ -1,0 +1,61 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bcrypt (3.1.16)
+    dotenv (2.7.6)
+    ffi (1.13.1)
+    listen (3.2.1)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
+    mini_mime (1.0.2)
+    multi_json (1.15.0)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
+    pony (1.13.1)
+      mail (>= 2.0)
+    rack (2.2.3)
+    rack-protection (2.1.0)
+      rack
+    rb-fsevent (0.10.4)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
+    rerun (0.13.0)
+      listen (~> 3.0)
+    ruby2_keywords (0.0.2)
+    sinatra (2.1.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.1.0)
+      tilt (~> 2.0)
+    sinatra-contrib (2.1.0)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 2.1.0)
+      sinatra (= 2.1.0)
+      tilt (~> 2.0)
+    slim (4.1.0)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 2.0.6, < 2.1)
+    sqlite3 (1.4.2)
+    stripe (5.26.0)
+    temple (0.8.2)
+    tilt (2.0.10)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bcrypt
+  dotenv
+  pony
+  rerun
+  sinatra
+  sinatra-contrib
+  slim
+  sqlite3
+  stripe
+
+BUNDLED WITH
+   2.1.4

@@ -1,27 +1,27 @@
-async function getForks() {
-    let user = "itggot";
-    let reponame = "apl-preparation";
-    let result = await fetch(`https://api.github.com/repos/${user}/${reponame}/forks`);
-    const hej = await result.json();
-    console.log(hej);
-    handleForkData(hej);
-    // handleRepoData(hej);
+async function getForks () { // eslint-disable-line no-unused-vars
+  const user = 'itggot'
+  const reponame = 'apl-preparation'
+  const result = await fetch(`https://api.github.com/repos/${user}/${reponame}/forks`)
+  const hej = await result.json()
+  console.log(hej)
+  handleForkData(hej)
+  // handleRepoData(hej);
 }
 
-function handleForkData(forkData) {
-    for(i = 0; i < forkData.length; i++) {
-        createForkCard(forkData[i]);
-    }
+function handleForkData (forkData) {
+  for (const data of forkData) {
+    createForkCard(data)
+  }
 }
 
-function createForkCard(fork) {
-    let parent = document.querySelector("#forkCard");
-    let card = parent.content.cloneNode(true);
+function createForkCard (fork) {
+  const parent = document.querySelector('#forkCard')
+  const card = parent.content.cloneNode(true)
 
-    card.querySelector(".reponame").innerHTML = fork.full_name;
-    card.querySelector(".ghlink").href = fork.html_url;
+  card.querySelector('.reponame').innerHTML = fork.full_name
+  card.querySelector('.ghlink').href = fork.html_url
 
-    document.querySelector('.repoviewContainer').appendChild(card);
+  document.querySelector('.repoviewContainer').appendChild(card)
 }
 
 async function search () { // eslint-disable-line no-unused-vars

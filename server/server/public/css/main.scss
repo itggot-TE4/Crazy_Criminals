@@ -11,9 +11,14 @@ header{
     grid-template-columns: 5% 90% 5%;
 
     input{
-        background-color: inherit;
+        background-color: red;
         border: none;
+        font-size: 1.5rem;
 
+    }
+    input:focus{
+        background-color: white;
+        border: none;
     }
 }
 
@@ -23,15 +28,15 @@ header{
     height: fit-content;
     display: flex;
     justify-content: center;
-
+    margin-top: 2vh;
     .cardBox{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-
+        gap: 20px 2px;
         .card{
             width: 25vw;
             height: 12vh;
-            background-color: #EEF2F7;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
             p{
                 font-size: 1rem;
@@ -84,7 +89,7 @@ header{
     }
 }
 
-}
+
 
 form.login{
     width: 50vw;

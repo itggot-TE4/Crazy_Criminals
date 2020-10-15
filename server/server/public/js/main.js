@@ -1,3 +1,5 @@
+document.querySelector('#searchButton').addEventListener('click', search)
+
 async function search () { // eslint-disable-line no-unused-vars
   const search = document.getElementById('searchBar').value
   console.log(search)
@@ -37,6 +39,3 @@ function generateTemp () { // eslint-disable-line no-unused-vars
   console.log(card)
   document.querySelector('.cardBox').appendChild(card)
 }
-
-function sum (a, b) { return a + b }
-module.exports = sum

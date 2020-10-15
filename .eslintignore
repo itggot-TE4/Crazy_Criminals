@@ -1,0 +1,7 @@
+node_modules/
+coverage/
+cover/
+.DS_Store
+test.spec.js
+jest.config.js
+babel.config.js

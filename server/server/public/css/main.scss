@@ -84,9 +84,15 @@ header{
     }
 }
 
+}
 
-
-
-
-
-    
+form.login{
+    width: 50vw;
+    height: 40vh;
+    margin: auto;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

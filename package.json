@@ -1,0 +1,42 @@
+{
+  "name": "te4",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/itggot-TE4/TE4/workflows/tests/badge.svg)](https://github.com/itggot-TE4/Yala/actions) # TE4 Template project for projects at TE4.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/preset-env": "^7.11.5",
+    "@supabase/doctest-js": "^0.1.0",
+    "@testing-library/dom": "^7.24.5",
+    "@testing-library/jest-dom": "^5.11.4",
+    "doctest": "^0.17.1",
+    "jest": "^26.5.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "@typescript-eslint/parser": "^4.4.1",
+    "eslint": "^7.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest-localstorage-mock": "^2.4.3"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itggot-TE4/Crazy_Criminals.git"
+  },
+  "bugs": {
+    "url": "https://github.com/itggot-TE4/Crazy_Criminals/issues"
+  },
+  "homepage": "https://github.com/itggot-TE4/Crazy_Criminals#readme"
+}

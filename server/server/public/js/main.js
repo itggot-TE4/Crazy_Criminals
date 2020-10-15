@@ -39,3 +39,6 @@ function generateTemp(){
     console.log(card);
     document.querySelector(".cardBox").appendChild(card);
 }
+
+function sum (a, b) { return a + b }
+module.exports = sum

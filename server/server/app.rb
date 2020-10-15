@@ -10,8 +10,11 @@ class Site < Sinatra::Base
     end
 
     get '/' do
-
         slim :index
+    end
+
+    get '/user/:user/:repo' do
+        slim :repoview
     end
 
     get '/users/login' do

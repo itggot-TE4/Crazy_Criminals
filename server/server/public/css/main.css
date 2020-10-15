@@ -30,6 +30,43 @@ header input:focus {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+}
+
+.repoviewContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.repoviewContainer .forkcard {
+  margin: 15px;
+  width: 30vw;
+  height: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1;
+      grid-template-columns: 1;
+  padding: 0px 25px 10px 25px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 5px rgba(36, 36, 36, 0.575);
+          box-shadow: 1px 1px 5px rgba(36, 36, 36, 0.575);
+}
+
+.repoviewContainer .forkcard button {
+  width: 5vw;
+  height: 3vw;
+  background-color: #2baea1;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 5px rgba(36, 36, 36, 0.575);
+          box-shadow: 1px 1px 5px rgba(36, 36, 36, 0.575);
+}
+
+.repoviewContainer .forkcard button:hover {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

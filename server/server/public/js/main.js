@@ -5,6 +5,32 @@ function run () {
   window.document.querySelector('#searchButton').addEventListener('click', search)
 }
 
+ async function getForks () { // eslint-disable-line no-unused-vars
+  const user = 'itggot'
+  const reponame = 'apl-preparation'
+  const result = await fetch(`https://api.github.com/repos/${user}/${reponame}/forks`)
+  const hej = await result.json()
+  console.log(hej)
+  handleForkData(hej)
+  // handleRepoData(hej);
+}
+
+function handleForkData (forkData) {
+  for (const data of forkData) {
+    createForkCard(data)
+  }
+}
+
+function createForkCard (fork) {
+  const parent = document.querySelector('#forkCard')
+  const card = parent.content.cloneNode(true)
+
+  card.querySelector('.reponame').innerHTML = fork.full_name
+  card.querySelector('.ghlink').href = fork.html_url
+
+  document.querySelector('.repoviewContainer').appendChild(card)
+}
+
 async function search () { // eslint-disable-line no-unused-vars
   const search = document.getElementById('searchBar').value
   console.log(search)

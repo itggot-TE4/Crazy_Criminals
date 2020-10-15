@@ -1,8 +1,8 @@
 function sum (a, b) { return a + b }
 module.exports = sum
 
-function run(){
-    window.document.querySelector('#searchButton').addEventListener('click', search)
+function run () {
+  window.document.querySelector('#searchButton').addEventListener('click', search)
 }
 
 async function search () { // eslint-disable-line no-unused-vars

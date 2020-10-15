@@ -9,6 +9,16 @@ body{
     width: 100vw;
     min-height: 100vh;
     height: fit-content;
+
 }
 
-    
+form.login{
+    width: 50vw;
+    height: 40vh;
+    margin: auto;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

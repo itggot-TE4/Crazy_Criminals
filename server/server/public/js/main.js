@@ -1,4 +1,13 @@
-async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
+function run () {
+  window.document.querySelector('#searchButton').addEventListener('click', search)
+  const url = window.location.pathname.split('/')
+  console.log(url)
+  if (url[1] === 'user') {
+    getForks(url[2], url[3])
+  }
+}
+
+ async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
   const result = await fetch(`https://api.github.com/repos/${user}/${reponame}/forks`)
   const hej = await result.json()
   handleForkData(hej)
@@ -64,8 +73,5 @@ function generateTemp () { // eslint-disable-line no-unused-vars
   document.querySelector('.cardBox').appendChild(card)
 }
 
-const url = window.location.pathname.split('/')
-console.log(url)
-if (url[1] === 'user') {
-  getForks(url[2], url[3])
-}
+
+run()

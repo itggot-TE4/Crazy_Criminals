@@ -14,7 +14,13 @@ header {
 }
 
 header input {
-  background-color: inherit;
+  background-color: red;
+  border: none;
+  font-size: 1.5rem;
+}
+
+header input:focus {
+  background-color: white;
   border: none;
 }
 
@@ -67,6 +73,7 @@ header input {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: 2vh;
 }
 
 .wrapper .cardBox {
@@ -74,12 +81,14 @@ header input {
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
+  gap: 20px 2px;
 }
 
 .wrapper .cardBox .card {
   width: 25vw;
   height: 12vh;
-  background-color: #EEF2F7;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .wrapper .cardBox .card p {
@@ -89,13 +98,6 @@ header input {
 .wrapper .cardBox .card .overBox {
   height: 50%;
   width: 100%;
-}
-
-form.login {
-  width: 50vw;
-  height: 40vh;
-  margin: auto;
-  background-color: lightblue;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -155,6 +157,19 @@ form.login {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+form.login {
+  width: 50vw;
+  height: 40vh;
+  margin: auto;
+  background-color: lightblue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

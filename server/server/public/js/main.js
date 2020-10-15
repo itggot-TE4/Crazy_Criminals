@@ -1,4 +1,11 @@
-async function getForks () { // eslint-disable-line no-unused-vars
+function sum (a, b) { return a + b }
+module.exports = sum
+
+function run () {
+  window.document.querySelector('#searchButton').addEventListener('click', search)
+}
+
+ async function getForks () { // eslint-disable-line no-unused-vars
   const user = 'itggot'
   const reponame = 'apl-preparation'
   const result = await fetch(`https://api.github.com/repos/${user}/${reponame}/forks`)
@@ -64,5 +71,4 @@ function generateTemp () { // eslint-disable-line no-unused-vars
   document.querySelector('.cardBox').appendChild(card)
 }
 
-function sum (a, b) { return a + b }
-module.exports = sum
+run()

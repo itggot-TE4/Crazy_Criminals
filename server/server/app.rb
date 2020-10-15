@@ -4,8 +4,11 @@ class Site < Sinatra::Base
     enable :sessions
 
     get '/' do
-
         slim :index
+    end
+
+    get '/:user/:repo' do
+        slim :repoview
     end
 
 end

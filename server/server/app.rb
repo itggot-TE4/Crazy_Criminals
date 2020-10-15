@@ -22,11 +22,12 @@ class Site < Sinatra::Base
 
     post '/users/login' do
         #Executes login form
-        
+
         username = params[:name]
         login_pasword = params[:password]
         user = @db.execute('SELECT * FROM users WHERE name = ?;', username).first
-
+        
+        #Compares passwords and redirects based upon if they're equal
         if BCrypt::Password.new(user['password']) == login_pasword
             session[:user_id] = user['id']
             redirect '/'

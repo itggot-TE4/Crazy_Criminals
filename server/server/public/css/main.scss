@@ -6,10 +6,85 @@ body{
     top: 0;
 }
 
+header{
+    width: 100%;
+    height: 10vh;
+    background-color: red;
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+
+    input{
+        background-color: inherit;
+        border: none;
+
+    }
+}
+
 .wrapper{
     width: 100vw;
     min-height: 100vh;
     height: fit-content;
+    display: flex;
+    justify-content: center;
+
+    .cardBox{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        .card{
+            width: 25vw;
+            height: 12vh;
+            background-color: #EEF2F7;
+
+            p{
+                font-size: 1rem;
+            }
+            
+            .overBox{
+                height: 50%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-self: center;
+                
+                .name{
+                    width: 80%;
+                    height: 100%;
+                    p{padding-top: 2%;}
+                }
+            }
+
+            .lowerBox{
+                height: 50%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                .actionBox{
+                    width: 80%;
+                    height: 100%;
+                    display: grid;
+                    grid-template-columns: auto auto auto 30%;
+                    align-items: center;
+
+                    a, p{
+                        text-decoration: none;
+                    }
+
+                    p.counter{
+                        margin: 0;
+                        display: flex;
+                        width: 100%;
+                        height: 100%;
+                        justify-content: flex-end;
+                        align-items: center;
+                    }
+                
+                }
+                
+            }
+        }
+    }
 }
 
 .repoviewContainer {
@@ -40,4 +115,15 @@ body{
             }
         }
     }
+}
+
+form.login{
+    width: 50vw;
+    height: 40vh;
+    margin: auto;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

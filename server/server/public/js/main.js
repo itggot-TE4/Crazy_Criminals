@@ -37,7 +37,9 @@ async function search () { // eslint-disable-line no-unused-vars
   //   const result = await fetch(`https://api.github.com/users/${search}/repos`)
   const result = await fetch(`/search/${search}`, { method: 'GET' })
   // const text = await (handleData(result.json()));
+
   const text = await result.json()
+  deleteOld()
   handleData(text)
 }
 
@@ -47,6 +49,13 @@ function handleData (repositories) {
     createCard(repo)
   }
 }
+function deleteOld () {
+  let oldElements = document.querySelectorAll('.card');
+  for (element of oldElements){
+      element.remove()
+  }
+}
+
 
 function createCard (repo) {
   const parent = document.querySelector('#card')

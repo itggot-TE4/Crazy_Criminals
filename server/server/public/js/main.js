@@ -19,13 +19,29 @@ function handleForkData (forkData) {
   }
 }
 
+async function get_source(data,card){
+  console.log(data)
+  const result = await fetch(`https://api.github.com/repos/${data.full_name}/contents/.manifest.json`)
+  const manifest = await result.json()
+  const unparsed = atob(manifest.content);
+  const file_path = JSON.parse(unparsed)
+
+  const source_load = await fetch(`https://api.github.com/repos/${data.full_name}/contents/${file_path.filePath}`)
+  const source_code = await source_load.json()
+  const code = atob(source_code.content)
+  console.log(code)
+  // console.log(card.querySelector('.code'))
+  card.querySelector('.code').innerHTML = code;
+}
+
 function createForkCard (fork) {
   const parent = document.querySelector('#forkCard')
   const card = parent.content.cloneNode(true)
-
+  
   card.querySelector('.reponame').innerHTML = fork.full_name
   card.querySelector('.ghlink').href = fork.html_url
-
+  get_source(fork,card)
+  
   document.querySelector('.repoviewContainer').appendChild(card)
 }
 
@@ -36,13 +52,11 @@ async function search () { // eslint-disable-line no-unused-vars
   const result = await fetch(`https://api.github.com/users/${search}/repos`)
   // const text = await (handleData(result.json()));
   const text = await (result.json())
-  console.log(text)
   handleData(text)
 }
 
 function handleData (repositories) {
   for (const repo of repositories) {
-    console.log(repo)
     createCard(repo)
   }
 }

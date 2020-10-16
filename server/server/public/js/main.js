@@ -60,13 +60,19 @@ async function search () { // eslint-disable-line no-unused-vars
   const search = document.getElementById('searchBar').value
   const result = await fetch(`/search/${search}`, { method: 'GET' })
   const text = await result.json()
-  console.log(text)
+  deleteOld()
   handleData(text)
 }
 
 function handleData (repositories) {
   for (const repo of repositories) {
     createCard(repo)
+  }
+}
+function deleteOld () {
+  const oldElements = document.querySelectorAll('.card')
+  for (const element of oldElements) {
+    element.remove()
   }
 }
 

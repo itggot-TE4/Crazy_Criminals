@@ -34,7 +34,7 @@ async function search () { // eslint-disable-line no-unused-vars
   const search = document.getElementById('searchBar').value
   console.log(search)
   // let result = await getAPI(search);
-  const result = await fetch(`https://api.github.com/users/${search}/repos`)
+  const result = await fetch(`search/${search}`)
   // const text = await (handleData(result.json()));
   const text = await (result.json())
   console.log(text)

@@ -21,12 +21,18 @@ function handleForkData (forkData) {
 }
 
 async function getSource (data, codeParent) {
-  const result = await fetch(`https://api.github.com/repos/${data.full_name}/contents/.manifest.json`)
+  const result = await fetch(`/manifest/${data.fullname}`, {method: 'POST'})
   const manifest = await result.json()
+
+  console.log('MANIFEST')
+  console.log(manifest)
+
   const unparsed = atob(manifest.content)
   const filePath = JSON.parse(unparsed)
 
-  const sourceLoad = await fetch(`https://api.github.com/repos/${data.full_name}/contents/${filePath.filePath}`)
+
+  // https://api.github.com/repos/${data.full_name}/contents/${filePath.filePath}
+  const sourceLoad = await fetch(`/content/${data.full_name}/${filePath.filePath}`, {method: 'POST'})
   const sourceCode = await sourceLoad.json()
   const code = atob(sourceCode.content)
   codeParent.innerHTML = code
@@ -45,12 +51,9 @@ function createForkCard (fork) {
 
 async function search () { // eslint-disable-line no-unused-vars
   const search = document.getElementById('searchBar').value
-  //   console.log(search)
-  // let result = await getAPI(search);
-  //   const result = await fetch(`https://api.github.com/users/${search}/repos`)
   const result = await fetch(`/search/${search}`, { method: 'GET' })
-  // const text = await (handleData(result.json()));
   const text = await result.json()
+  console.log(text)
   handleData(text)
 }
 

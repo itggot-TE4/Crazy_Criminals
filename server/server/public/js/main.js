@@ -7,10 +7,10 @@ function run () {
   }
 }
 
-async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
-  const result = await fetch(`/forks/${user}/${reponame}`, { method: 'POST' })
+ async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
+
+  const result = await fetch(`/forks/${user}/${reponame}`)
   const hej = await result.json()
-  //   console.log(JSON.p;
   handleForkData(hej)
 }
 
@@ -32,13 +32,16 @@ function createForkCard (fork) {
 
 async function search () { // eslint-disable-line no-unused-vars
   const search = document.getElementById('searchBar').value
-  const result = await fetch(`/search/${search}`, { method: 'GET' })
-  const text = await result.json()
+  console.log(search)
+  // let result = await getAPI(search);
+  const result = await fetch(`https://api.github.com/users/${search}/repos`)
+  // const text = await (handleData(result.json()));
+  const text = await (result.json())
+  console.log(text)
   handleData(text)
 }
 
 function handleData (repositories) {
-    console.log(repositories)
   for (const repo of repositories) {
     console.log(repo)
     createCard(repo)
@@ -70,5 +73,6 @@ function generateTemp () { // eslint-disable-line no-unused-vars
   console.log(card)
   document.querySelector('.cardBox').appendChild(card)
 }
+
 
 run()

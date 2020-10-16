@@ -21,21 +21,28 @@ function handleForkData (forkData) {
 }
 
 async function getSource (data, codeParent) {
-  const result = await fetch(`/manifest/${data.fullname}`, {method: 'POST'})
+  // console.log(data)
+  const result = await fetch('/manifest', {
+    method: 'POST',
+    body: JSON.stringify({ fullname: data.full_name })
+  })
+
   const manifest = await result.json()
-
-  console.log('MANIFEST')
-  console.log(manifest)
-
   const unparsed = atob(manifest.content)
   const filePath = JSON.parse(unparsed)
 
+  const sourceLoad = await fetch('/filecontent', {
+    method: 'POST',
+    body: JSON.stringify({ fullname: data.full_name, filePath: filePath.filePath })
+  })
 
-  // https://api.github.com/repos/${data.full_name}/contents/${filePath.filePath}
-  const sourceLoad = await fetch(`/content/${data.full_name}/${filePath.filePath}`, {method: 'POST'})
   const sourceCode = await sourceLoad.json()
-  const code = atob(sourceCode.content)
-  codeParent.innerHTML = code
+
+  if (sourceCode.content !== undefined) {
+    codeParent.innerHTML = atob(sourceCode.content)
+  } else {
+    codeParent.innerHTML = 'No code here...'
+  }
 }
 
 function createForkCard (fork) {

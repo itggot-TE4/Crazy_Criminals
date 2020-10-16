@@ -50,12 +50,11 @@ function handleData (repositories) {
   }
 }
 function deleteOld () {
-  let oldElements = document.querySelectorAll('.card');
-  for (element of oldElements){
-      element.remove()
+  const oldElements = document.querySelectorAll('.card')
+  for (const element of oldElements) {
+    element.remove()
   }
 }
-
 
 function createCard (repo) {
   const parent = document.querySelector('#card')

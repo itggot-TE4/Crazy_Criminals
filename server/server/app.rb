@@ -69,5 +69,29 @@ class Site < Sinatra::Base
         puts ENV['PRIVATE_TOKEN']
         return response.body
     end
+
+    post '/manifest' do
+        content_type :json
+        data = JSON.parse(request.body.read)
+
+        headers = { 
+            "Authorization" => "token #{ENV['PRIVATE_TOKEN']}"
+        }
+        response = HTTParty.get("https://api.github.com/repos/#{data['fullname']}/contents/.manifest.json", :headers => headers)
+                
+        return response.body
+    end
+
+    post '/filecontent' do
+        content_type :json
+        data = JSON.parse(request.body.read)
+        # return params[:searchcontent]
+
+        headers = { 
+            "Authorization" => "token #{ENV['PRIVATE_TOKEN']}"
+        }
+        response = HTTParty.get("https://api.github.com/repos/#{data['fullname']}/contents/#{data['filePath']}", :headers => headers)
+        return response.body
+    end
 end
     

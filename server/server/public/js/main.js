@@ -8,8 +8,9 @@ function run () {
 }
 
 async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
-  const result = await fetch(`https://api.github.com/repos/${user}/${reponame}/forks`)
+  const result = await fetch(`/forks/${user}/${reponame}`, { method: 'POST' })
   const hej = await result.json()
+  //   console.log(JSON.p;
   handleForkData(hej)
 }
 
@@ -44,11 +45,12 @@ function createForkCard (fork) {
 
 async function search () { // eslint-disable-line no-unused-vars
   const search = document.getElementById('searchBar').value
-  console.log(search)
+  //   console.log(search)
   // let result = await getAPI(search);
-  const result = await fetch(`https://api.github.com/users/${search}/repos`)
+  //   const result = await fetch(`https://api.github.com/users/${search}/repos`)
+  const result = await fetch(`/search/${search}`, { method: 'GET' })
   // const text = await (handleData(result.json()));
-  const text = await (result.json())
+  const text = await result.json()
   handleData(text)
 }
 

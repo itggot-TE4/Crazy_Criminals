@@ -20,12 +20,25 @@ function handleForkData (forkData) {
   }
 }
 
+async function getSource (data, codeParent) {
+  const result = await fetch(`https://api.github.com/repos/${data.full_name}/contents/.manifest.json`)
+  const manifest = await result.json()
+  const unparsed = atob(manifest.content)
+  const filePath = JSON.parse(unparsed)
+
+  const sourceLoad = await fetch(`https://api.github.com/repos/${data.full_name}/contents/${filePath.filePath}`)
+  const sourceCode = await sourceLoad.json()
+  const code = atob(sourceCode.content)
+  codeParent.innerHTML = code
+}
+
 function createForkCard (fork) {
   const parent = document.querySelector('#forkCard')
   const card = parent.content.cloneNode(true)
 
   card.querySelector('.reponame').innerHTML = fork.full_name
   card.querySelector('.ghlink').href = fork.html_url
+  getSource(fork, card.querySelector('.code'))
 
   document.querySelector('.repoviewContainer').appendChild(card)
 }
@@ -43,7 +56,6 @@ async function search () { // eslint-disable-line no-unused-vars
 
 function handleData (repositories) {
   for (const repo of repositories) {
-    console.log(repo)
     createCard(repo)
   }
 }

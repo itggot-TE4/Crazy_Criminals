@@ -30,6 +30,7 @@ function createForkCard (fork) {
 }
 
 async function search () { // eslint-disable-line no-unused-vars
+
   const search = document.getElementById('searchBar').value
   console.log(search)
   // let result = await getAPI(search);
@@ -51,7 +52,7 @@ function createCard (repo) {
   const parent = document.querySelector('#card')
   const card = parent.content.cloneNode(true)
 
-  const APIname = card.querySelector('p.name')
+  const APIname = card.querySelector('h6')
   APIname.innerHTML = repo.name
 
   const forks = card.querySelector('p.counter')
@@ -73,5 +74,15 @@ function generateTemp () { // eslint-disable-line no-unused-vars
   document.querySelector('.cardBox').appendChild(card)
 }
 
+
+document.querySelector('#searchBar').addEventListener('click', head)
+
+
+function head(){
+  document.querySelector('header').style.backgroundColor = 'white'
+  document.querySelector('.material-icons').style.color = '#565656'
+  document.querySelector('.textBox').innerHTML = '';
+  document.querySelector('.textBox').style.width = '0px'; 
+}
 
 run()

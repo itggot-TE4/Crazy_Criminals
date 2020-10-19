@@ -1,0 +1,120 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+*{margin: 0px;}
+
+
+header{  
+  background-color: #ee6e73;
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+}
+.material-icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+i.material-icons {
+  color: white;
+}
+
+.inputBox{
+  justify-content: center;
+  display: flex;
+  height: 7vh;
+
+}
+
+
+
+#searchBar{
+  border: none!important;
+  outline: none;
+  height: 7vh;
+}
+/* #searchBar:focus{
+  border: none!important;
+  outline: none;
+  background-color: white;
+  height: 7vh;
+} */
+/* input[type=text]:active{
+  border: none!important;
+  outline: none;
+
+  
+} */
+
+
+
+.wrapper{
+  width: 100vw;
+  min-height: 100vh;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
+}
+
+.textBox{
+  width: 70%;
+}
+
+.cardBox{
+      display: grid;
+      grid-template-columns: auto auto auto;
+}
+.card{
+  width: 25vw;
+  height: 12vh;
+}
+
+.overBox{
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.name{
+  min-width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.lowerBox{
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actionBox{
+  width: 80%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto 30%;
+  align-items: flex-start;
+}
+p.counter{
+  margin: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: flex-start;
+  color: grey;
+}

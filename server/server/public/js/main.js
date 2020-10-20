@@ -29,9 +29,9 @@ function createForkCard (fork) {
   document.querySelector('.repoviewContainer').appendChild(card)
 }
 
-async function search () { // eslint-disable-line no-unused-vars
-
-  const search = document.getElementById('searchBar').value
+async function search (e) { // eslint-disable-line no-unused-vars
+  e.preventDefault();
+  const search = document.getElementById('search').value
   console.log(search)
   // let result = await getAPI(search);
   const result = await fetch(`https://api.github.com/users/${search}/repos`)
@@ -75,12 +75,11 @@ function generateTemp () { // eslint-disable-line no-unused-vars
 }
 
 
-document.querySelector('#searchBar').addEventListener('click', head)
+document.querySelector('#searchButton').addEventListener('click', head)
 
 
 function head(){
-  document.querySelector('header').style.backgroundColor = 'white'
-  document.querySelector('.material-icons').style.color = '#565656'
+  
   document.querySelector('.textBox').innerHTML = '';
   document.querySelector('.textBox').style.width = '0px'; 
 }

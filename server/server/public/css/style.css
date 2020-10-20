@@ -15,48 +15,6 @@
 *{margin: 0px;}
 
 
-header{  
-  background-color: #ee6e73;
-  display: grid;
-  grid-template-columns: 5% 90% 5%;
-}
-.material-icons{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-i.material-icons {
-  color: white;
-}
-
-.inputBox{
-  justify-content: center;
-  display: flex;
-  height: 7vh;
-
-}
-
-
-
-#searchBar{
-  border: none!important;
-  outline: none;
-  height: 7vh;
-}
-/* #searchBar:focus{
-  border: none!important;
-  outline: none;
-  background-color: white;
-  height: 7vh;
-} */
-/* input[type=text]:active{
-  border: none!important;
-  outline: none;
-
-  
-} */
-
-
 
 .wrapper{
   width: 100vw;

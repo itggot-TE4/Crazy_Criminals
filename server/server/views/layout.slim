@@ -6,20 +6,37 @@ head
     title server
 
     link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'/
-    link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/
-    link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/
+    link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/
+    link type="text/css" rel="stylesheet" href="/css/style.css"  media="screen,projection"/
 
 
 body
-    header  class="z-depth-2"
-        i class="material-icons" account_box
-        .inputBox    
-            input.validate type="text" id="searchBar"/
-        button id="searchButton"/
+    / header  class="z-depth-2"
+    /     i class="material-icons" account_box
+    /     .inputBox    
+    /         input.validate type="text" id="searchBar"/
+    /     button id="searchButton"/
+    
+    nav
+        .nav-wrapper
+            form
+                .input-field
+                    input#search required="" type="search" /
+                    label.label-icon for="search" 
+                        i.material-icons account_box
+                    i class="material-icons" close
+
+                    button id="searchButton"/
+
+
+    
+
+ 
 
 
 
     == yield
+script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
 script src='/js/main.js'
 == slim :html_templates
 

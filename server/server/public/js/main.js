@@ -1,6 +1,5 @@
 function run () {
   window.document.querySelector('#searchButton').addEventListener('click', search)
-  
 
   const url = window.location.pathname.split('/')
   if (url[1] === 'user') {

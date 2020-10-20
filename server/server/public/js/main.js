@@ -3,7 +3,6 @@ function run () {
   
 
   const url = window.location.pathname.split('/')
-  console.log(url)
   if (url[1] === 'user') {
     getForks(url[2], url[3])
   }
@@ -12,7 +11,6 @@ function run () {
 async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
   const result = await fetch(`/forks/${user}/${reponame}`, { method: 'GET' })
   const hej = await result.json()
-  //   console.log(JSON.p;
   handleForkData(hej)
 }
 
@@ -62,6 +60,7 @@ async function search () { // eslint-disable-line no-unused-vars
   const search = document.getElementById('searchBar').value
   const result = await fetch(`/search/${search}`, { method: 'GET' })
   const text = await result.json()
+  console.log(text)
   deleteOld()
   handleData(text)
 }

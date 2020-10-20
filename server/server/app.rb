@@ -6,8 +6,9 @@ require 'sinatra/cookies'
 class Site < Sinatra::Base
     Dotenv.load
     enable :sessions
-    set :cookie_options, :domain => 'localhost:9292'
+    # set :cookie_options, :domain => 'localhost:9292'
     register Sinatra::Contrib
+    set :protection, false
 
 
     before do 
@@ -19,9 +20,17 @@ class Site < Sinatra::Base
         @user_token = session[:user_token]
     end
 
-    set :protection, false
 
     get '/' do
+        if @user_token != nil
+            p "USER TOKEN ####", @user_token
+            response = HTTParty.get("https://api.github.com/user/repos", headers: {"Authorization" => "token #{@user_token}"})
+            @repos = JSON.parse(response.body)
+            puts @repos
+        else
+            @repos = []
+        end
+
         slim :index
     end
 
@@ -57,7 +66,7 @@ class Site < Sinatra::Base
     get '/forks/:user/:repo' do
         # content_type :json
 
-        response = HTTParty.get("https://api.github.com/repos/#{params[:user]}/#{params[:repo]}/forks", {"Authorization" => "Bearer #{@user_token}"})
+        response = HTTParty.get("https://api.github.com/repos/#{params[:user]}/#{params[:repo]}/forks", headers: {"Authorization" => "Bearer #{@user_token}"})
         return response.body
     end
 
@@ -65,7 +74,7 @@ class Site < Sinatra::Base
         content_type :json
         # return params[:searchcontent]
 
-        response = HTTParty.get("https://api.github.com/users/#{params[:search]}/repos", {"Authorization" => "Bearer #{@user_token}"})
+        response = HTTParty.get("https://api.github.com/users/#{params[:search]}/repos", headers: {"Authorization" => "Bearer #{@user_token}"})
         return response.body
     end
 
@@ -73,7 +82,7 @@ class Site < Sinatra::Base
         content_type :json
         data = JSON.parse(request.body.read)
 
-        response = HTTParty.get("https://api.github.com/repos/#{data['fullname']}/contents/.manifest.json", {"Authorization" => "Bearer #{@user_token}"})
+        response = HTTParty.get("https://api.github.com/repos/#{data['fullname']}/contents/.manifest.json", headers: {"Authorization" => "Bearer #{@user_token}"})
                 
         return response.body
     end
@@ -82,7 +91,7 @@ class Site < Sinatra::Base
         content_type :json
         data = JSON.parse(request.body.read)
 
-        response = HTTParty.get("https://api.github.com/repos/#{data['fullname']}/contents/#{data['filePath']}", {"Authorization" => "Bearer #{@user_token}"})
+        response = HTTParty.get("https://api.github.com/repos/#{data['fullname']}/contents/#{data['filePath']}", headers: {"Authorization" => "Bearer #{@user_token}"})
         return response.body
     end
 end

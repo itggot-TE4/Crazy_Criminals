@@ -19,13 +19,26 @@ template id="forkCard"
 
 template id="card"
     .card
-        .overBox    
-            .name
-                h6.name
-        .lowerBox
-            .actionBox
-                a class="forkLink" href="#" Show Forks
-                p id="pipe" |
-                a class="ghLink" id="ghlink" href="#" Show in Github
-                p.counter
+        .card-content
+            span.card-title.activator.grey-text.text-darken-4
+                |
+            p
+                a href="#"  Show Forks
+                |  |
+                a href="#"  Show in Github 
+                span.right
+                
+
+
+
+    / .card
+    /     .overBox    
+    /         .name
+    /             h6.name
+    /     .lowerBox
+    /         .actionBox
+    /             a class="forkLink" href="#" Show Forks
+    /             p id="pipe" |
+    /             a class="ghLink" id="ghlink" href="#" Show in Github
+    /             p.counter
                     

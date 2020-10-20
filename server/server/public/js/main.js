@@ -9,7 +9,7 @@ function run () {
 
  async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
 
-  const result = await fetch(`/forks/${user}/${reponame}`)
+  const result = await fetch(`/forks/${user}/${reponame}`, {method: 'POST' })
   const hej = await result.json()
   handleForkData(hej)
 }
@@ -88,11 +88,11 @@ function createCard (repo) {
   const forks = card.querySelector('span.right')
   forks.innerHTML = repo.forks
 
-  // const gh = card.querySelector('#ghlink')
-  // gh.href = repo.html_url
+  const gh = card.querySelector('#ghlink')
+  gh.href = repo.html_url
 
-  // const forklink = card.querySelector('.forkLink')
-  // forklink.href = `/user/${repo.full_name}`
+  const forklink = card.querySelector('.forkLink')
+  forklink.href = `/user/${repo.full_name}`
 
   document.querySelector('.cardBox').appendChild(card)
 }

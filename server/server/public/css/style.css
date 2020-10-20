@@ -33,6 +33,21 @@ button{
 }
 
 .cardBox{
-      display: grid;
-      grid-template-columns: auto auto auto;
+  display: grid;
+  grid-template-columns: auto auto auto!important;
+}
+.cardCss{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3%;
+}
+.innerCard{
+  margin: 0px;
+}
+
+
+
+.repocode{
+  background-color: yellow;
 }

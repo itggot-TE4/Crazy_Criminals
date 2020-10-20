@@ -1,21 +1,31 @@
 template id="forkCard" 
-    .forkcard
-        h1.reponame reponame
-        section.repocode
-            pre
-                code
-                    p.code
-        a.ghlink Show on GitHub
-        section.testresults
-            p testresults
-        form action="/comment" method="post"
-            input.comment type="text" name="commentBody" placeholder="Comment"/
-            section.actionbuttons
-                p Klar
-                p Åtgärd Krävs
-                p Ej bedömd
-            button type="submit" SAVE
+    .card.cardCss
+        .innerCard
+            h5.reponame reponame
+            section.repocode
+                pre
+                    code
+                        p.code
+            a.ghlink Show on GitHub
+            section.testresults
+            //   p testresults
+            form action="/comment" method="post"
+                .row
+                    .input-field.col.s12.comment
+                        input#email.validate type="text" name="commentBody" /
+                        label for="email"  Comment
+
+                section.actionbuttons
+                    p Klar
+                    p Åtgärd Krävs
+                    p Ej bedömd
+                a.waves-effect.waves-light.btn-small SAVE
         
+
+
+
+
+
 
 template id="card"
     .card
@@ -23,22 +33,10 @@ template id="card"
             span.card-title.activator.grey-text.text-darken-4
                 |
             p
-                a href="#"  Show Forks
+                a class="forkLink" href="#"  Show Forks
                 |  |
-                a href="#"  Show in Github 
+                a class="ghLink" id="ghlink" href="#"  Show in Github 
                 span.right
                 
 
 
-
-    / .card
-    /     .overBox    
-    /         .name
-    /             h6.name
-    /     .lowerBox
-    /         .actionBox
-    /             a class="forkLink" href="#" Show Forks
-    /             p id="pipe" |
-    /             a class="ghLink" id="ghlink" href="#" Show in Github
-    /             p.counter
-                    

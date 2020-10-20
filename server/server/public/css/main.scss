@@ -2,6 +2,7 @@ $red: red;
 $blue: rgb(43, 174, 161);
 
 body{
+    font-family: monospace;
     margin: 0;
     top: 0;
 }
@@ -35,8 +36,10 @@ header{
     .cardBox{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px 2px;
+        grid-row-gap: 20px;
+        grid-column-gap: 5px;
         .card{
+            border-radius: 3px;
             width: 25vw;
             height: 12vh;
             box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);

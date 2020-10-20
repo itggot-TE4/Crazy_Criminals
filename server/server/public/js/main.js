@@ -8,7 +8,8 @@ function run () {
 }
 
  async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
-  const result = await fetch(`https://api.github.com/repos/${user}/${reponame}/forks`)
+
+  const result = await fetch(`/forks/${user}/${reponame}`)
   const hej = await result.json()
   handleForkData(hej)
 }
@@ -19,32 +20,61 @@ function handleForkData (forkData) {
   }
 }
 
+async function getSource (data, codeParent) {
+  // console.log(data)
+  const result = await fetch('/manifest', {
+    method: 'POST',
+    body: JSON.stringify({ fullname: data.full_name })
+  })
+
+  const manifest = await result.json()
+  const unparsed = atob(manifest.content)
+  const filePath = JSON.parse(unparsed)
+
+  const sourceLoad = await fetch('/filecontent', {
+    method: 'POST',
+    body: JSON.stringify({ fullname: data.full_name, filePath: filePath.filePath })
+  })
+
+  const sourceCode = await sourceLoad.json()
+
+  if (sourceCode.content !== undefined) {
+    codeParent.innerHTML = atob(sourceCode.content)
+  } else {
+    codeParent.innerHTML = 'No code here...'
+  }
+}
+
 function createForkCard (fork) {
   const parent = document.querySelector('#forkCard')
   const card = parent.content.cloneNode(true)
 
   card.querySelector('.reponame').innerHTML = fork.full_name
   card.querySelector('.ghlink').href = fork.html_url
+  getSource(fork, card.querySelector('.code'))
 
   document.querySelector('.repoviewContainer').appendChild(card)
 }
 
+
 async function search (e) { // eslint-disable-line no-unused-vars
   e.preventDefault();
   const search = document.getElementById('search').value
-  console.log(search)
-  // let result = await getAPI(search);
-  const result = await fetch(`https://api.github.com/users/${search}/repos`)
-  // const text = await (handleData(result.json()));
-  const text = await (result.json())
-  console.log(text)
+  const result = await fetch(`/search/${search}`, { method: 'GET' })
+  const text = await result.json()
+  deleteOld()
   handleData(text)
 }
 
 function handleData (repositories) {
   for (const repo of repositories) {
-    console.log(repo)
     createCard(repo)
+  }
+}
+function deleteOld () {
+  const oldElements = document.querySelectorAll('.card')
+  for (const element of oldElements) {
+    element.remove()
   }
 }
 

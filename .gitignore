@@ -2,3 +2,5 @@ node_modules/
 coverage/
 cover/
 .DS_Store
+server/server/vendor/
+server/server/.env

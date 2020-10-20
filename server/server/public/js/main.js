@@ -1,5 +1,7 @@
 function run () {
   window.document.querySelector('#searchButton').addEventListener('click', search)
+  
+
   const url = window.location.pathname.split('/')
   console.log(url)
   if (url[1] === 'user') {
@@ -8,7 +10,7 @@ function run () {
 }
 
 async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
-  const result = await fetch(`/forks/${user}/${reponame}`, { method: 'POST' })
+  const result = await fetch(`/forks/${user}/${reponame}`, { method: 'GET' })
   const hej = await result.json()
   //   console.log(JSON.p;
   handleForkData(hej)

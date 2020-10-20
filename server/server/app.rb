@@ -66,6 +66,7 @@ class Site < Sinatra::Base
             "Authorization" => "token #{ENV['PRIVATE_TOKEN']}"
         }
         response = HTTParty.get("https://api.github.com/users/#{params[:search]}/repos", :headers => headers)
+        puts ENV['PRIVATE_TOKEN']
         return response.body
     end
 

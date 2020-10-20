@@ -7,10 +7,10 @@ function run () {
   }
 }
 
-async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
-  const result = await fetch(`/forks/${user}/${reponame}`, { method: 'POST' })
+ async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
+
+  const result = await fetch(`/forks/${user}/${reponame}`)
   const hej = await result.json()
-  //   console.log(JSON.p;
   handleForkData(hej)
 }
 
@@ -101,5 +101,6 @@ function generateTemp () { // eslint-disable-line no-unused-vars
   console.log(card)
   document.querySelector('.cardBox').appendChild(card)
 }
+
 
 run()

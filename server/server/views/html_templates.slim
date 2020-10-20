@@ -11,9 +11,21 @@ template id="forkCard"
         form action="/comment" method="post"
             input.comment type="text" name="commentBody" placeholder="Comment"/
             section.actionbuttons
-                p Klar
-                p Åtgärd Krävs
-                p Ej bedömd
+                p
+                    label
+                    input name="group1" type="radio"
+                     i.material-icons done 
+                    span Klar
+                p
+                    label
+                    input name="group1" type="radio" 
+                    i.material-icons replay
+                    span Åtgärd Krävs
+                p
+                    label
+                    input name="group1" type="radio" 
+                    i.material-icons visibility_off
+                    span Ej bedömd
             button type="submit" SAVE
         
 template id="card"

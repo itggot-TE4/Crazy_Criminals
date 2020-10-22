@@ -1,0 +1,52 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+*{margin: 0px;}
+
+button{
+  background: transparent;
+  border: none !important;
+}
+
+.wrapper{
+  width: 100vw;
+  min-height: 100vh;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
+}
+
+.textBox{
+  width: 70%;
+}
+
+.cardBox{
+  display: grid;
+  grid-template-columns: auto auto auto;
+
+}
+.repoviewContainer{
+  display: grid;
+  grid-template-columns: auto auto ;
+}
+
+
+
+.comments{
+  border-top: 1px solid rgba(160,160,160,0.2);;
+}
+.css{
+  padding: 0px 2% 0px 2%; 
+}

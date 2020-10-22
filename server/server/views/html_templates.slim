@@ -1,42 +1,72 @@
 template id="forkCard" 
-    .forkcard
-        h1.reponame reponame
-        section.repocode
-            pre
-                code
-                    p.code
-        a.ghlink Show on GitHub
-        section.testresults
-            p testresults
-        form action="/comment" method="post"
-            input.comment type="text" name="commentBody" placeholder="Comment"/
-            section.actionbuttons
-                p
-                    label
-                    input name="group1" type="radio"
-                     i.material-icons done 
-                    span Klar
-                p
-                    label
-                    input name="group1" type="radio" 
-                    i.material-icons replay
-                    span Åtgärd Krävs
-                p
-                    label
-                    input name="group1" type="radio" 
-                    i.material-icons visibility_off
-                    span Ej bedömd
-            button type="submit" SAVE
-        
+    .row.col.s12
+        .card
+            .card-content
+                .card-title.reponame reponame
+                section.repocode
+                    pre
+                        code
+                            p.code
+                    br
+                    a.ghlink Show on GitHub
+                    
+                section.testresults
+                br
+                p testresults
+                p testresults
+                p testresults
+
+                section.comments
+                    form action="/comment" method="post"
+                        .row
+                            .input-field.col.s12.comment
+                                input#email.validate type="text" name="commentBody" /
+                                label for="email"  Comment
+                                
+
+                section.actionbuttons
+                    p
+                        label
+                            input.filled-in checked="checked" type="checkbox" / 
+                            span 
+                            i.material-icons.small done
+                            span klar
+                    p/
+
+                    p
+                        label
+                            input.filled-in checked="checked" type="checkbox" / 
+                            span 
+                            i.material-icons.small refresh
+                            span Åtgärd krävs
+                    p/
+
+                    p
+                        label
+                            input.filled-in checked="checked" type="checkbox" / 
+                            span 
+                            i.material-icons.small visibility_off
+                            span Ej bedömd
+                    p/
+                    br
+                    a.waves-effect.waves-light.btn-small SAVE
+            
+
+
+
+
+
+
 template id="card"
     .card
-        .overBox    
-            .name
-                p.name
-        .lowerBox
-            .actionBox
-                a class="forkLink" href="#" Show Forks
-                p id="pipe" |
-                a class="ghLink" id="ghlink" href="#" Show in Github
-                p.counter
-                    
+        .card-content
+            span.card-title.activator.grey-text.text-darken-4
+                |
+            p
+                a class="forkLink" href="#"  Show Forks
+                |  |
+                a class="ghLink" id="ghlink" href="#"  Show in Github 
+                span.right
+                
+
+

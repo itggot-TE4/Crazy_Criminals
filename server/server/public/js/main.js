@@ -9,7 +9,7 @@ function run () {
 
  async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
 
-  const result = await fetch(`/forks/${user}/${reponame}`)
+  const result = await fetch(`/forks/${user}/${reponame}`, {method: 'POST' })
   const hej = await result.json()
   handleForkData(hej)
 }
@@ -56,8 +56,10 @@ function createForkCard (fork) {
   document.querySelector('.repoviewContainer').appendChild(card)
 }
 
-async function search () { // eslint-disable-line no-unused-vars
-  const search = document.getElementById('searchBar').value
+
+async function search (e) { // eslint-disable-line no-unused-vars
+  e.preventDefault();
+  const search = document.getElementById('search').value
   const result = await fetch(`/search/${search}`, { method: 'GET' })
   const text = await result.json()
   deleteOld()
@@ -80,10 +82,10 @@ function createCard (repo) {
   const parent = document.querySelector('#card')
   const card = parent.content.cloneNode(true)
 
-  const APIname = card.querySelector('p.name')
+  const APIname = card.querySelector('span')
   APIname.innerHTML = repo.name
 
-  const forks = card.querySelector('p.counter')
+  const forks = card.querySelector('span.right')
   forks.innerHTML = repo.forks
 
   const gh = card.querySelector('#ghlink')
@@ -102,5 +104,14 @@ function generateTemp () { // eslint-disable-line no-unused-vars
   document.querySelector('.cardBox').appendChild(card)
 }
 
+
+document.querySelector('#searchButton').addEventListener('click', head)
+
+
+function head(){
+  
+  document.querySelector('.textBox').innerHTML = '';
+  document.querySelector('.textBox').style.width = '0px'; 
+}
 
 run()

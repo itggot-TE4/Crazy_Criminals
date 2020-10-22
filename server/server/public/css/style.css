@@ -34,20 +34,19 @@ button{
 
 .cardBox{
   display: grid;
-  grid-template-columns: auto auto auto!important;
+  grid-template-columns: auto auto auto;
+
 }
-.cardCss{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 3%;
-}
-.innerCard{
-  margin: 0px;
+.repoviewContainer{
+  display: grid;
+  grid-template-columns: auto auto ;
 }
 
 
 
-.repocode{
-  background-color: yellow;
+.comments{
+  border-top: 1px solid rgba(160,160,160,0.2);;
+}
+.css{
+  padding: 0px 2% 0px 2%; 
 }

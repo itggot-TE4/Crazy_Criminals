@@ -1,2 +1,17 @@
 .wrapper 
     .cardBox
+    -if session[:user_token] == nil
+        a href="https://github.com/login/oauth/authorize?client_id=Iv1.5dca15a67bafb278&scope=repo" Logga in
+    -else 
+        a href="/user/logout" Logga ut
+    -@repos.each do |r|
+        .card
+            .overBox    
+                .name
+                    p.name r
+            .lowerBox
+                .actionBox
+                    a class="forkLink" href="#" Show Forks
+                    p id="pipe" |
+                    a class="ghLink" id="ghlink" href="#" Show in Github
+                    p.counter

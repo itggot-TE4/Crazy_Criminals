@@ -1,10 +1,20 @@
 .wrapper
-    .textBox
-        h2 Welcome to Theacher-O-Matic!
-        h6 Enter you GitHub username in the header field
-    .cardBox
-        -if session[:user_token] == nil
-            a href="https://github.com/login/oauth/authorize?client_id=Iv1.5dca15a67bafb278&scope=repo" Logga in
-        -else 
-            a href="/user/logout" Logga ut
-    
+    -if session[:user_token] == nil
+        .textBox
+            h2 Welcome to Theacher-O-Matic!
+            h6 Enter you GitHub username in the header field
+        .cardBox
+            a href="https://github.com/login/oauth/authorize?client_id=b5712fb69f7f738ebee5&scope=repo" Logga in
+    -else 
+        a href="/user/logout" Logga ut
+        .cardBox
+            -@repos.each do |r|
+                .card
+                    .card-content
+                        span.card-title.activator.grey-text.text-darken-4
+                            | #{r['name']}
+                        p
+                            a class="forkLink" href="/user/#{r['full_name']}"  Show Forks
+                                |  
+                            a class="ghLink" id="ghlink" href="#{r['html_url']}"  Show in Github 
+                            span.right

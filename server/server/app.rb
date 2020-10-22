@@ -23,8 +23,7 @@ class Site < Sinatra::Base
 
     get '/' do
         if @user_token != nil
-            p "USER TOKEN ####", @user_token
-            response = HTTParty.get("https://api.github.com/user/repos", headers: {"Authorization" => "token #{@user_token}"})
+            response = HTTParty.get("https://api.github.com/user/repos", headers: {"Authorization" => "Bearer #{@user_token}"})
             @repos = JSON.parse(response.body)
             puts @repos
         else
@@ -45,28 +44,32 @@ class Site < Sinatra::Base
 
     get '/user/callback' do
         ## Ev måste vara post för säkerhetsskäl
+
+        
         content_type :json
         code = params[:code]
         
         response = HTTParty.post('https://github.com/login/oauth/access_token',
         { body:
-          { client_id: ENV['CLIENT_ID'],
-            client_secret: ENV['CLIENT_SECRET'],
-            code: code },
-          headers: { accept: 'application/json' } })
+        { client_id: ENV['CLIENT_ID'],
+        client_secret: ENV['CLIENT_SECRET'],
+        code: code },
+        headers: { accept: 'application/json' } })
+        puts "häör ###############", response, code
         session[:user_token] = JSON.parse(response.body)['access_token']
 
         redirect '/'
     end
 
-    post '/api/user-repos' do
-       @user_token
-    end
+    # post '/api/user-repos' do
+    #    @user_token
+    # end
 
     get '/forks/:user/:repo' do
         # content_type :json
 
         response = HTTParty.get("https://api.github.com/repos/#{params[:user]}/#{params[:repo]}/forks", headers: {"Authorization" => "Bearer #{@user_token}"})
+        puts "####", response, "####"
         return response.body
     end
 

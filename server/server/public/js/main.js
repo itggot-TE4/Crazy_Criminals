@@ -10,6 +10,7 @@ function run () {
 async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
   const result = await fetch(`/forks/${user}/${reponame}`, { method: 'GET' })
   const hej = await result.json()
+  console.log(hej)
   handleForkData(hej)
 }
 

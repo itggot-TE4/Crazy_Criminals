@@ -51,9 +51,10 @@ function createForkCard (fork) {
 
   card.querySelector('.reponame').innerHTML = fork.full_name
   card.querySelector('.ghlink').href = fork.html_url
-  getSource(fork, card.querySelector('.code'))
+  getSource(fork, card.querySelector('code.javascript'))
 
   document.querySelector('.repoviewContainer').appendChild(card)
+  hljs.initHighlightingOnLoad();
 }
 
 

@@ -1,15 +1,14 @@
 function run () {
   window.document.querySelector('#searchButton').addEventListener('click', search)
+
   const url = window.location.pathname.split('/')
-  console.log(url)
   if (url[1] === 'user') {
     getForks(url[2], url[3])
   }
 }
 
- async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
-
-  const result = await fetch(`/forks/${user}/${reponame}`, {method: 'POST' })
+async function getForks (user, reponame) { // eslint-disable-line no-unused-vars
+  const result = await fetch(`/forks/${user}/${reponame}`, { method: 'GET' })
   const hej = await result.json()
   handleForkData(hej)
 }
@@ -62,6 +61,7 @@ async function search (e) { // eslint-disable-line no-unused-vars
   const search = document.getElementById('search').value
   const result = await fetch(`/search/${search}`, { method: 'GET' })
   const text = await result.json()
+  console.log(text)
   deleteOld()
   handleData(text)
 }

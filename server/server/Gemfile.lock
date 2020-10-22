@@ -31,6 +31,7 @@ GEM
     rerun (0.13.0)
       listen (~> 3.0)
     ruby2_keywords (0.0.2)
+    securerandom (0.1.0)
     sinatra (2.1.0)
       mustermann (~> 1.0)
       rack (~> 2.2)
@@ -59,6 +60,7 @@ DEPENDENCIES
   httparty
   pony
   rerun
+  securerandom
   sinatra
   sinatra-contrib
   slim

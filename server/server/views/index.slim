@@ -3,4 +3,8 @@
         h2 Welcome to Theacher-O-Matic!
         h6 Enter you GitHub username in the header field
     .cardBox
+        -if session[:user_token] == nil
+            a href="https://github.com/login/oauth/authorize?client_id=Iv1.5dca15a67bafb278&scope=repo" Logga in
+        -else 
+            a href="/user/logout" Logga ut
     

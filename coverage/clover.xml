@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1603451491647" clover="3.2.0">
-  <project timestamp="1603451491647" name="All files">
+<coverage generated="1603452267775" clover="3.2.0">
+  <project timestamp="1603452267775" name="All files">
     <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2" elements="10" coveredelements="10" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
     <file name="tests.js" path="/Users/alexandernylundgom/Documents/GitHub/Crazy_Criminals/server/server/public/js/tests.js">
       <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>

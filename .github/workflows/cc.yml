@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Checkout master
-      run: git checkout master
+      # run: git checkout master
     - name: Run the tests with coverage using lcov
       run: |
         echo Generate report

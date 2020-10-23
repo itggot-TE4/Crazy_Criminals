@@ -54,11 +54,11 @@ function createForkCard (fork) {
   getSource(fork, card.querySelector('code.javascript'))
 
   document.querySelector('.repoviewContainer').appendChild(card)
-  /* eslint-disable no-unused-vars */
+  /* eslint-disable no-undef */
 
   hljs.initHighlightingOnLoad()
 
-  /* eslint-enable no-unused-vars */
+  /* eslint-enable no-undef */
 }
 
 async function search (e) { // eslint-disable-line no-unused-vars

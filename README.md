@@ -3,7 +3,6 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/dcfc4c361d7c61efe9e8/maintainability)](https://codeclimate.com/github/itggot-TE4/Crazy_Criminals/maintainability)
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/dcfc4c361d7c61efe9e8/test_coverage)](https://codeclimate.com/github/itggot-TE4/Crazy_Criminals/test_coverage)
-
 # TE4
 Template project for projects at TE4. 
 

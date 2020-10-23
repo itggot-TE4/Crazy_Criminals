@@ -54,12 +54,15 @@ function createForkCard (fork) {
   getSource(fork, card.querySelector('code.javascript'))
 
   document.querySelector('.repoviewContainer').appendChild(card)
-  hljs.initHighlightingOnLoad();
+  /* eslint-disable no-undef */
+
+  hljs.initHighlightingOnLoad()
+
+  /* eslint-enable no-undef */
 }
 
-
 async function search (e) { // eslint-disable-line no-unused-vars
-  e.preventDefault();
+  e.preventDefault()
   const search = document.getElementById('search').value
   const result = await fetch(`/search/${search}`, { method: 'GET' })
   const text = await result.json()
@@ -106,14 +109,11 @@ function generateTemp () { // eslint-disable-line no-unused-vars
   document.querySelector('.cardBox').appendChild(card)
 }
 
-
 document.querySelector('#searchButton').addEventListener('click', head)
 
-
-function head(){
-  
-  document.querySelector('.textBox').innerHTML = '';
-  document.querySelector('.textBox').style.width = '0px'; 
+function head () {
+  document.querySelector('.textBox').innerHTML = ''
+  document.querySelector('.textBox').style.width = '0px'
 }
 
 run()

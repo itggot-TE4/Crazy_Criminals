@@ -15,6 +15,7 @@
                             | #{r['name']}
                         p
                             a class="forkLink" href="/user/#{r['full_name']}"  Show Forks
-                                |  
+                                |
                             a class="ghLink" id="ghlink" href="#{r['html_url']}"  Show in Github 
-                            span.right
+                            span.right #{r['forks']}
+                    

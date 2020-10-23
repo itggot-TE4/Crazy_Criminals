@@ -5,9 +5,13 @@
 // import fs from 'fs'
 // import path from 'path'
 
+import { sum } from './server/server/public/js/tests.js'
+it('tests', () =>{
+    expect(sum(2,3)).toBe(5)
+})
 // const html = fs.readFileSync(path.resolve(__dirname, './index.html'), 'utf8');
 
-// // const sum = require('./server/server/public/js/main.js');
+// const sum = require('./server/server/public/js/tests.js');
 
 // let h
 // let dom
@@ -20,26 +24,23 @@
 //         // This is indeed dangerous and should only be done with trusted content.
 //         // https://github.com/jsdom/jsdom#executing-scripts
 
-//         let options = {
+//         // let options = {
             
-//             resources: 'usable',
-//             runScripts: 'dangerously'
-//         }
+//         //     resources: 'usable',
+//         //     runScripts: 'dangerously'
+//         // }
 
-//         JSDOM.fromFile('', options).then((dom) => {
-//             setTimeout(() => {
-//                 container = dom.window.document.body
-//                 h = new TestHelper(container)
-//                 done();
-//             }, 500);
-//         })
+//         // JSDOM.fromFile('', options).then((dom) => {
+//         //     setTimeout(() => {
+//         //         container = dom.window.document.body
+//         //         h = new TestHelper(container)
+//         //         done();
+//         //     }, 500);
+//         // })
 
-//         done();
+//         // done();
 //     })
 
-//     it('tests', () =>{
 
-//         expect(container).not.toBeNull
-//     })
 // })
 

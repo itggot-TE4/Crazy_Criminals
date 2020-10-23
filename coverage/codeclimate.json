@@ -1,0 +1,46 @@
+{
+  "ci_service": {
+    "branch": "unity-tests",
+    "build_identifier": "",
+    "build_url": "",
+    "commit_sha": "bd564b1f5abd0bdadb5c68218b62586d121fd2ac",
+    "committed_at": 1603452459,
+    "name": ""
+  },
+  "environment": {
+    "gem_version": "3.0.3",
+    "package_version": "",
+    "pwd": "/Users/alexandernylundgom/Documents/GitHub/Crazy_Criminals",
+    "prefix": "/Users/alexandernylundgom/Documents/GitHub/Crazy_Criminals",
+    "rails_root": "",
+    "reporter_version": "latest",
+    "simplecov_root": ""
+  },
+  "git": {
+    "branch": "unity-tests",
+    "head": "bd564b1f5abd0bdadb5c68218b62586d121fd2ac",
+    "committed_at": 1603452459
+  },
+  "covered_percent": 100,
+  "covered_strength": 0,
+  "line_counts": {
+    "missed": 0,
+    "covered": 5,
+    "total": 5
+  },
+  "source_files": [
+    {
+      "blob_id": "14f4e412c845b865f13c259b5715da64b1900c93",
+      "coverage": "[1,1,1,1,1]",
+      "covered_percent": 100,
+      "covered_strength": 1,
+      "line_counts": {
+        "missed": 0,
+        "covered": 5,
+        "total": 5
+      },
+      "name": "server/server/public/js/tests.js"
+    }
+  ],
+  "repo_token": ""
+}

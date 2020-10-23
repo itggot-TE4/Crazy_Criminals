@@ -4,4 +4,6 @@ cover/
 .DS_Store
 test.spec.js
 jest.config.js
+materialize.min.js
+materialize.js
 babel.config.js
